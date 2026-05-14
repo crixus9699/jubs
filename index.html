@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Md. Abdullah Al Jubair | ডঃ মোঃ আবদুল্লাহ আল জুবায়ের</title>
+    
+    <!-- Google Fonts: Hind Siliguri for Bengali -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medicalTeal: '#0D9488',
+                        deepSlate: '#1E293B',
+                        softWhite: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #e2f2f1, #ffffff);
+        }
+        [v-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-softWhite text-deepSlate font-sans overflow-x-hidden">
+
+    <!-- Header / Navigation -->
+    <header x-data="{ isOpen: false }" class="fixed w-full z-50 top-0 glass-card">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="bg-medicalTeal p-2 rounded-lg">
+                    <i data-lucide="stethoscopes" class="text-white w-6 h-6"></i>
+                </div>
+                <span class="text-xl font-bold text-medicalTeal">Dr. Jubair</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#home" class="hover:text-medicalTeal transition">হোম</a>
+                <a href="#about" class="hover:text-medicalTeal transition">পরিচিতি</a>
+                <a href="#services" class="hover:text-medicalTeal transition">সেবাসমূহ</a>
+                <a href="#tips" class="hover:text-medicalTeal transition">স্বাস্থ্য টিপস</a>
+                <a href="#contact" class="bg-medicalTeal text-white px-5 py-2 rounded-full hover:shadow-lg transition">অ্যাপয়েন্টমেন্ট</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button @click="isOpen = !isOpen" class="md:hidden text-deepSlate">
+                <i data-lucide="menu" x-show="!isOpen"></i>
+                <i data-lucide="x" x-show="isOpen"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div x-show="isOpen" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             class="md:hidden glass-card absolute w-full py-4 px-6 flex flex-col space-y-4 shadow-xl">
+            <a href="#home" @click="isOpen = false">হোম</a>
+            <a href="#about" @click="isOpen = false">পরিচিতি</a>
+            <a href="#services" @click="isOpen = false">সেবাসমূহ</a>
+            <a href="#tips" @click="isOpen = false">স্বাস্থ্য টিপস</a>
+            <a href="#contact" @click="isOpen = false" class="text-medicalTeal font-bold">অ্যাপয়েন্টমেন্ট নিন</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 hero-gradient">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <span class="text-medicalTeal font-semibold tracking-wider uppercase text-sm mb-4 block">আপনার বিশ্বস্ত স্বাস্থ্য সঙ্গী</span>
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                    আধুনিক চিকিৎসা ও <br>
+                    <span class="text-medicalTeal">মমতাময় সেবার</span> এক নির্ভরযোগ্য নাম
+                </h1>
+                <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                    ডঃ মোঃ আবদুল্লাহ আল জুবায়েরের সাথে আপনার স্বাস্থ্যের যত্ন নিন। সঠিক রোগ নির্ণয় এবং উন্নত চিকিৎসার মাধ্যমে সুস্থ জীবন গড়ার পথে আমরা আপনার পাশে আছি।
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contact" class="bg-medicalTeal text-white px-8 py-4 rounded-xl font-bold shadow-xl hover:bg-opacity-90 transition transform hover:-translate-y-1">অ্যাপয়েন্টমেন্ট নিন</a>
+                    <a href="#about" class="bg-white text-deepSlate border border-slate-200 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition">বিস্তারিত জানুন</a>
+                </div>
+            </div>
+            <div class="relative" data-aos="zoom-in" data-aos-duration="1200">
+                <div class="absolute -z-10 top-10 right-10 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+                <!-- Placeholder for Doctor's Image -->
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800" alt="Dr. Md. Abdullah Al Jubair" class="w-full h-auto">
+                </div>
+                <!-- Experience Badge -->
+                <div class="absolute bottom-6 -left-6 glass-card p-6 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <p class="text-medicalTeal font-bold text-3xl">১০+</p>
+                    <p class="text-xs font-medium uppercase tracking-tighter">বছরের অভিজ্ঞতা</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">চিকিৎসক পরিচিতি</h2>
+                <div class="h-1.5 w-20 bg-medicalTeal mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-medicalTeal">ডঃ মোঃ আবদুল্লাহ আল জুবায়ের</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        আমি একজন নিবেদিতপ্রাণ চিকিৎসক, যার লক্ষ্য হলো বাংলাদেশের মানুষের কাছে উন্নত এবং সহজলভ্য চিকিৎসা সেবা পৌঁছে দেওয়া। গত ১০ বছরেরও বেশি সময় ধরে আমি সাধারণ চিকিৎসা এবং জটিল স্বাস্থ্য সমস্যা সমাধানে রোগীদের সহায়তা করে আসছি।
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="check-circle" class="text-medicalTeal"></i>
+                            <span>এমবিবিএস (MBBS), বিসিএস (স্বাস্থ্য)</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="check-circle" class="text-medicalTeal"></i>
+                            <span>দীর্ঘদিনের ক্লিনিক্যাল অভিজ্ঞতা</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="check-circle" class="text-medicalTeal"></i>
+                            <span>রোগীর মানসিক ও শারীরিক সুস্বাস্থ্য নিশ্চিতকরণ</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+                    <div class="bg-teal-50 p-8 rounded-3xl text-center">
+                        <i data-lucide="users" class="w-10 h-10 text-medicalTeal mx-auto mb-4"></i>
+                        <h4 class="font-bold text-xl">৫০০০+</h4>
+                        <p class="text-sm text-slate-500">সুস্থ রোগী</p>
+                    </div>
+                    <div class="bg-slate-50 p-8 rounded-3xl text-center">
+                        <i data-lucide="award" class="w-10 h-10 text-medicalTeal mx-auto mb-4"></i>
+                        <h4 class="font-bold text-xl">বিশেষজ্ঞ</h4>
+                        <p class="text-sm text-slate-500">জেনারেল মেডিসিন</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specializations -->
+    <section id="services" class="py-24 bg-softWhite">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">বিশেষজ্ঞ সেবাসমূহ</h2>
+                <p class="text-slate-500">আপনার প্রতিটি স্বাস্থ্য সমস্যার জন্য আমাদের আছে বিশেষায়িত সমাধান</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-3xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-teal-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="activity" class="text-medicalTeal"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">জেনারেল মেডিসিন</h3>
+                    <p class="text-slate-500 text-sm">সাধারণ জ্বর, সর্দি-কাশি থেকে শুরু করে দীর্ঘস্থায়ী রোগ নির্ণয় ও চিকিৎসা।</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-3xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-teal-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="heart-pulse" class="text-medicalTeal"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">উচ্চ রক্তচাপ ও ডায়াবেটিস</h3>
+                    <p class="text-slate-500 text-sm">উচ্চ রক্তচাপ এবং ডায়াবেটিস নিয়ন্ত্রণে বিশেষজ্ঞ পরামর্শ ও নিয়মিত চেকআপ।</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-3xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-teal-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="brain-circuit" class="text-medicalTeal"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">মানসিক স্বাস্থ্য পরামর্শ</h3>
+                    <p class="text-slate-500 text-sm">মানসিক চাপ, দুশ্চিন্তা এবং মানসিক অবসাদ কাটিয়ে উঠতে পেশাদার কাউন্সিলিং।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Tips Blog -->
+    <section id="tips" class="py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-right">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">স্বাস্থ্য সচেতনতা</h2>
+                    <p class="text-slate-500">সুস্থ থাকার কিছু সহজ টিপস ও পরামর্শ</p>
+                </div>
+                <a href="#" class="text-medicalTeal font-bold flex items-center mt-4 md:mt-0 hover:underline">
+                    সবগুলো দেখুন <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <article class="flex flex-col md:flex-row gap-6 items-center p-4 rounded-3xl hover:bg-slate-50 transition" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400" class="w-full md:w-48 h-48 object-cover rounded-2xl" alt="Yoga">
+                    <div>
+                        <span class="text-xs font-bold text-medicalTeal uppercase">জীবনধারা</span>
+                        <h3 class="text-xl font-bold mt-2 mb-2">প্রতিদিন হাঁটার ৫টি বিস্ময়কর উপকারিতা</h3>
+                        <p class="text-slate-500 text-sm">নিয়মিত হাঁটা কীভাবে আপনার হৃদরোগের ঝুঁকি কমাতে পারে তা জানুন...</p>
+                    </div>
+                </article>
+                <article class="flex flex-col md:flex-row gap-6 items-center p-4 rounded-3xl hover:bg-slate-50 transition" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?auto=format&fit=crop&q=80&w=400" class="w-full md:w-48 h-48 object-cover rounded-2xl" alt="Food">
+                    <div>
+                        <span class="text-xs font-bold text-medicalTeal uppercase">পুষ্টি</span>
+                        <h3 class="text-xl font-bold mt-2 mb-2">সুস্থ থাকতে সেরা ১০টি সুপারফুড</h3>
+                        <p class="text-slate-500 text-sm">আপনার প্রতিদিনের খাদ্যতালিকায় যা রাখা জরুরি...</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Appointment -->
+    <section id="contact" class="py-24 bg-deepSlate text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl font-bold mb-6">সরাসরি অ্যাপয়েন্টমেন্ট নিন</h2>
+                    <p class="text-slate-400 mb-8 leading-relaxed">
+                        সিরিয়াল পেতে নিচের ফর্মটি পূরণ করুন অথবা সরাসরি ফোন করুন। আমাদের প্রতিনিধি আপনার সাথে দ্রুত যোগাযোগ করবেন।
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-white/10 p-3 rounded-xl"><i data-lucide="phone-call" class="text-medicalTeal"></i></div>
+                            <div>
+                                <p class="text-sm text-slate-400">জরুরি কল করুন</p>
+                                <p class="text-xl font-bold">+৮৮০ ১৭০০-০০০০০০</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-white/10 p-3 rounded-xl"><i data-lucide="map-pin" class="text-medicalTeal"></i></div>
+                            <div>
+                                <p class="text-sm text-slate-400">চেম্বার লোকেশন</p>
+                                <p class="text-lg">ঢাকা, বাংলাদেশ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 md:p-10 text-deepSlate" data-aos="flip-left">
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-2">আপনার নাম</label>
+                            <input type="text" placeholder="নাম লিখুন" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none focus:ring-2 focus:ring-medicalTeal outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">ফোন নম্বর</label>
+                            <input type="tel" placeholder="০১৭XXXXXXXX" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none focus:ring-2 focus:ring-medicalTeal outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">সমস্যার ধরন</label>
+                            <select class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none focus:ring-2 focus:ring-medicalTeal outline-none">
+                                <option>সাধারণ চেকআপ</option>
+                                <option>ডায়াবেটিস পরামর্শ</option>
+                                <option>অন্যান্য</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-medicalTeal text-white font-bold py-4 rounded-xl shadow-lg hover:bg-opacity-90 transition">অ্যাপয়েন্টমেন্ট কনফার্ম করুন</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white border-t border-slate-100">
+        <div class="container mx-auto px-6 flex flex-col md:row justify-between items-center space-y-6 md:space-y-0">
+            <div class="flex items-center space-x-2">
+                <div class="bg-medicalTeal p-1.5 rounded-lg">
+                    <i data-lucide="stethoscopes" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="text-lg font-bold text-deepSlate">Dr. Jubair</span>
+            </div>
+            
+            <p class="text-slate-400 text-sm">© ২০২৪ ডঃ মোঃ আবদুল্লাহ আল জুবায়ের। সর্বস্বত্ব সংরক্ষিত।</p>
+
+            <div class="flex space-x-6">
+                <a href="https://facebook.com/drjubairofficial" target="_blank" class="text-slate-400 hover:text-blue-600 transition">
+                    <i data-lucide="facebook"></i>
+                </a>
+                <a href="#" class="text-slate-400 hover:text-blue-400 transition">
+                    <i data-lucide="twitter"></i>
+                </a>
+                <a href="#" class="text-slate-400 hover:text-red-500 transition">
+                    <i data-lucide="youtube"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
